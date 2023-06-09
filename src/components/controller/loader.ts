@@ -1,4 +1,4 @@
-import NewsApiResponse from './newsapiresponse';
+import NewsApiResponse from '../interface/newsapiresponse';
 
 type Options = {
   apiKey?: string;
