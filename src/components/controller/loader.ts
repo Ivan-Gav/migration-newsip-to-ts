@@ -22,11 +22,11 @@ class Loader {
   }
 
   getResp(
-    { endpoint, options = {} }: { endpoint: Endpoint; options: Options },
-    callback = () => {
+    { endpoint, options = {} }: { endpoint: Endpoint; options?: Options },
+    callback: Function = () => {
       console.error('No callback for GET response');
     }
-  ): void {
+  ) {
     this.load(Method.get, endpoint, callback, options);
   }
 
