@@ -2,7 +2,7 @@ import './sources.css';
 import NewsApiSource from '../../interface/newsapisource';
 
 class Sources {
-  draw(data: NewsApiSource[]) {
+  public static draw(data: NewsApiSource[]): void {
     const fragment = document.createDocumentFragment();
     const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
 

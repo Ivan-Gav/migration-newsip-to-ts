@@ -3,9 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  eslintConfig: {
-    ignorePatterns: ['webpack.config.js'],
-  },
+  ignorePatterns: ['webpack.config.js'],
   extends: [
     'eslint:recommended',
     'prettier',
@@ -50,5 +48,6 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'error',
     '@typescript-eslint/no-unnecessary-type-assertion': 'error',
     '@typescript-eslint/no-non-null-assertion': 'error',
+    'no-console': 'off',
   },
 };

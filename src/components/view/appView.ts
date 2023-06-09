@@ -3,22 +3,23 @@ import Sources from './sources/sources';
 import NewsApiResponse from '../interface/newsapiresponse';
 
 class AppView {
-  private news: News;
-  private sources: Sources;
+  // private news: News;
 
-  constructor() {
-    this.news = new News();
-    this.sources = new Sources();
-  }
+  // private sources: Sources;
 
-  drawNews(data: NewsApiResponse) {
+  // constructor() {
+  //   this.news = new News();
+  //   this.sources = new Sources();
+  // }
+
+  public static drawNews(data?: NewsApiResponse): void {
     const values = data?.articles ? data?.articles : [];
-    this.news.draw(values);
+    News.draw(values);
   }
 
-  drawSources(data: NewsApiResponse) {
+  public static drawSources(data?: NewsApiResponse): void {
     const values = data?.sources ? data?.sources : [];
-    this.sources.draw(values);
+    Sources.draw(values);
   }
 }
 
