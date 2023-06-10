@@ -12,12 +12,12 @@ class AppView {
   //   this.sources = new Sources();
   // }
 
-  public static drawNews(data?: NewsApiResponse): void {
+  public static drawNews(data?: Readonly<NewsApiResponse>): void {
     const values = data?.articles ? data?.articles : [];
     News.draw(values);
   }
 
-  public static drawSources(data?: NewsApiResponse): void {
+  public static drawSources(data?: Readonly<NewsApiResponse>): void {
     const values = data?.sources ? data?.sources : [];
     Sources.draw(values);
   }

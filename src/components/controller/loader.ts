@@ -59,7 +59,7 @@ class Loader {
     fetch(this.makeUrl(options, endpoint), { method })
       .then(Loader.errorHandler)
       .then((res: Response) => res.json())
-      .then((data: NewsApiResponse) => callback(data))
+      .then((data: Readonly<NewsApiResponse>) => callback(data))
       .catch((err: string) => console.error(err));
   }
 }
