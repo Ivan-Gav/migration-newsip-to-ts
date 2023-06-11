@@ -2,22 +2,16 @@ import News from './news/news';
 import Sources from './sources/sources';
 import NewsApiResponse from '../interface/newsapiresponse';
 
+type NewsResponse = Pick<NewsApiResponse, 'status' | 'totalResults' | 'articles'>;
+type SourcesResponse = Pick<NewsApiResponse, 'status' | 'totalResults' | 'sources'>;
+
 class AppView {
-  // private news: News;
-
-  // private sources: Sources;
-
-  // constructor() {
-  //   this.news = new News();
-  //   this.sources = new Sources();
-  // }
-
-  public static drawNews(data?: Readonly<NewsApiResponse>): void {
+  public static drawNews(data?: Readonly<NewsResponse>): void {
     const values = data?.articles ? data?.articles : [];
     News.draw(values);
   }
 
-  public static drawSources(data?: Readonly<NewsApiResponse>): void {
+  public static drawSources(data?: Readonly<SourcesResponse>): void {
     const values = data?.sources ? data?.sources : [];
     Sources.draw(values);
   }

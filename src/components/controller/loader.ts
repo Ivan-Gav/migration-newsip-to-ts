@@ -1,10 +1,12 @@
 import NewsApiResponse from '../interface/newsapiresponse';
 import GetRespCallback from '../interface/getrespcallback';
 
-type Options = {
-  apiKey?: string;
+type KeyOptions = {
+  apiKey: string;
   sources?: string;
 };
+
+type Options = Partial<KeyOptions>;
 
 type Endpoint = 'everything' | 'top-headlines' | 'sources';
 
@@ -16,9 +18,9 @@ enum Method {
 class Loader {
   protected baseLink: string;
 
-  protected options: Options;
+  protected options: KeyOptions;
 
-  constructor(baseLink: string, options: Options) {
+  constructor(baseLink: string, options: KeyOptions) {
     this.baseLink = baseLink;
     this.options = options;
   }
@@ -55,7 +57,7 @@ class Loader {
     return url.slice(0, -1);
   }
 
-  private load(method: Method, endpoint: Endpoint, callback: GetRespCallback, options: Options = {}): void {
+  private load(method: Method, endpoint: Endpoint, callback: GetRespCallback, options: Options): void {
     fetch(this.makeUrl(options, endpoint), { method })
       .then(Loader.errorHandler)
       .then((res: Response) => res.json())

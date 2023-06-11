@@ -5,11 +5,8 @@ import GetRespCallback from '../interface/getrespcallback';
 class App {
   private controller: AppController;
 
-  // private view: AppView;
-
   constructor() {
     this.controller = new AppController();
-    // this.view = new AppView();
   }
 
   public start(): void {

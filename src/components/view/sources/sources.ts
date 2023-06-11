@@ -2,20 +2,28 @@ import './sources.css';
 import NewsApiSource from '../../interface/newsapisource';
 
 class Sources {
+  private static getElement<T extends HTMLElement>(root: HTMLElement | Document, selector: string): T {
+    const element = root.querySelector<T>(selector);
+    if (!element) {
+      throw new TypeError(`No ${selector} found in ${root}`);
+    }
+    return element;
+  }
+
   public static draw(data: Readonly<NewsApiSource>[]): void {
     const fragment = document.createDocumentFragment();
-    const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
+    const sourceItemTemp = this.getElement<HTMLTemplateElement>(document, '#sourceItemTemp');
 
     data.forEach((item) => {
       const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLElement;
 
-      (sourceClone.querySelector('.source__item-name') as HTMLElement).textContent = item.name;
-      (sourceClone.querySelector('.source__item') as HTMLElement).setAttribute('data-source-id', item.id);
+      this.getElement(sourceClone, '.source__item-name').textContent = item.name;
+      this.getElement(sourceClone, '.source__item').setAttribute('data-source-id', item.id);
 
       fragment.append(sourceClone);
     });
 
-    (document.querySelector('.sources') as HTMLElement).append(fragment);
+    this.getElement(document, '.sources').append(fragment);
   }
 }
 
