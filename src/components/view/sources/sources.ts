@@ -28,7 +28,6 @@ class Sources {
 
     const expBtnHandler = (e: Event): void => {
       const btn = e.target as HTMLElement;
-      console.log(e.target);
       btn.classList.toggle('expand');
       if (srcWindow) {
         srcWindow.classList.toggle('expanded');

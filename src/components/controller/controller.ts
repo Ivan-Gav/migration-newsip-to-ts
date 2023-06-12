@@ -15,7 +15,6 @@ class AppController extends AppLoader {
   public getNews(e: Event, callback: GetRespCallback): void {
     let target = e.target as HTMLElement;
     const newsContainer = e.currentTarget as HTMLElement;
-    console.log(target);
 
     Sources.disActivate();
     Sources.activate(target);
