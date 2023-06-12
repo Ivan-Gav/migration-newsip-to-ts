@@ -14,6 +14,7 @@ class AppView {
   public static drawSources(data?: Readonly<SourcesResponse>): void {
     const values = data?.sources ? data?.sources : [];
     Sources.draw(values);
+    Sources.expandSources();
   }
 }
 

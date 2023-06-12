@@ -22,6 +22,24 @@ class Sources {
     }
   }
 
+  public static expandSources(): void {
+    const expBtn = document.querySelector('.window-btn');
+    const srcWindow = document.querySelector('.sources');
+
+    const expBtnHandler = (e: Event): void => {
+      const btn = e.target as HTMLElement;
+      console.log(e.target);
+      btn.classList.toggle('expand');
+      if (srcWindow) {
+        srcWindow.classList.toggle('expanded');
+      }
+    };
+
+    if (expBtn) {
+      expBtn.addEventListener('click', expBtnHandler);
+    }
+  }
+
   public static draw(data: Readonly<NewsApiSource>[]): void {
     const fragment = document.createDocumentFragment();
     const sourceItemTemp = this.getElement<HTMLTemplateElement>(document, '#sourceItemTemp');
