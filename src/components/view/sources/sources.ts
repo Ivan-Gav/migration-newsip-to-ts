@@ -10,6 +10,18 @@ class Sources {
     return element;
   }
 
+  public static disActivate(): void {
+    document.querySelectorAll('.source__item').forEach((src) => src.classList.remove('active'));
+  }
+
+  public static activate(src: HTMLElement): void {
+    if (src.classList.contains('source__item')) {
+      src.classList.add('active');
+    } else if (src.classList.contains('source__item-name')) {
+      (src.parentElement as HTMLElement).classList.add('active');
+    }
+  }
+
   public static draw(data: Readonly<NewsApiSource>[]): void {
     const fragment = document.createDocumentFragment();
     const sourceItemTemp = this.getElement<HTMLTemplateElement>(document, '#sourceItemTemp');
