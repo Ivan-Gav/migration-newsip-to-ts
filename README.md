@@ -4,8 +4,6 @@ This is an app interacting with the [News API](https://newsapi.org/) - simple HT
 
 This app was made as a learning project of [RSSchool JS/Frontend](https://rs.school/js/) course. If you're interested, here is the [link](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/migration-newip-to-ts.md) to the detailed description of the task. Initially I had got the app written in JS. The task was to migrate the app to TS and add responsive layout and some enchancements, which I accomplished successfully.
 
-You can find the app [here]().
-
 Technology stack:
 
 - TypeScript
